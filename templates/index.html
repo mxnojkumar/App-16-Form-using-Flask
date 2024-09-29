@@ -32,7 +32,7 @@
                 <label for="">Current occupation:</label>
                 <br>
                 <div class="btn-group-vertical" id="occupation">
-
+                    
                     <input class="btn-check form-control" type="radio" id="employed" name="occupation" value="employed" required>
                     <label class="btn btn-outline-secondary" for="employed">Employed</label>
             
@@ -46,7 +46,16 @@
                     <label class="btn btn-outline-secondary" for="student">Student</label>
                 </div>
             </div>
-            <button class="btn btn-secondary" type="submit">Submit</button>
+            <button class="btn btn-secondary mb-4" type="submit">Submit</button>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="alert alert-success">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
